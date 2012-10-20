@@ -1,5 +1,6 @@
 package org.zezutom.newsreader.web;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class NewsController {
 	private RssReader reader;
 	
 	@RequestMapping("/get/news/{category}")
-	public @ResponseBody Set<RssEntry> getNews(@PathVariable String category) {
+	public @ResponseBody List<RssEntry> getNews(@PathVariable String category) {
 		return reader.getFeeds(category);
 	}
 }

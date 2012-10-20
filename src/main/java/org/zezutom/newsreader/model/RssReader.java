@@ -2,6 +2,7 @@ package org.zezutom.newsreader.model;
 
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -40,9 +41,9 @@ public class RssReader {
 		return sb.toString();
 	}
 
-	public Set<RssEntry> getFeeds(String category) {
+	public List<RssEntry> getFeeds(String category) {
 		// preserve the order of insertion
-		Set<RssEntry> feeds = new LinkedHashSet<RssEntry>();
+		List<RssEntry> feeds = new ArrayList<RssEntry>();
 		
 		try {
 			URLConnection feedUrl = new URL(getFeedUrl(category)).openConnection();
