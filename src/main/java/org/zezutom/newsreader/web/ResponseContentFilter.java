@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-public class LoggingFilter implements Filter {
+public class ResponseContentFilter implements Filter {
 
-	private static final Logger LOGGER = Logger.getLogger(LoggingFilter.class);
+	private static final Logger LOGGER = Logger.getLogger(ResponseContentFilter.class);
 
 	public void destroy() {
 		// TODO Auto-generated method stub
@@ -26,13 +26,13 @@ public class LoggingFilter implements Filter {
 		
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
-		HttpResponseWrapper responseWrapper = new HttpResponseWrapper(httpResponse);
+		ResponseWrapper responseWrapper = new ResponseWrapper(httpResponse);
 		
 		// Continue with the usual processing
 		chain.doFilter(request, responseWrapper);
 		
 		// Log the resulting response
-		LOGGER.info("[" + httpRequest.getRequestURL() + "]:" + responseWrapper.getContent());	
+		LOGGER.info(NewsController.getLogMessage(httpRequest, responseWrapper.getContent()));	
 	}
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub

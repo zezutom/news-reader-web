@@ -13,6 +13,10 @@
 
 	<mvc:annotation-driven />
 	
+	<mvc:interceptors>
+	    <bean class="org.zezutom.newsreader.web.ResponseTimesInterceptor" />
+	</mvc:interceptors>
+	
 	<bean id="rssReader" class="org.zezutom.newsreader.model.RssReader">
 	    <constructor-arg  value="http://rss.news.yahoo.com/rss/" />
 	    <constructor-arg value="5" />

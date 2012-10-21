@@ -9,7 +9,7 @@
   
   <filter>
       <filter-name>loggingFilter</filter-name>
-      <filter-class>org.zezutom.newsreader.web.LoggingFilter</filter-class>
+      <filter-class>org.zezutom.newsreader.web.ResponseContentFilter</filter-class>
   </filter>
   
   <filter-mapping>

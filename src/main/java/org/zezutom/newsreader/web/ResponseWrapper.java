@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponseWrapper;
  * See:
  * http://www.wetfeetblog.com/servlet-filer-to-log-request-and-response-details-and-payload/431
  * */
-public class HttpResponseWrapper extends HttpServletResponseWrapper {
+public class ResponseWrapper extends HttpServletResponseWrapper {
 
 	private HttpServletResponse response;
 
@@ -20,7 +20,7 @@ public class HttpResponseWrapper extends HttpServletResponseWrapper {
 	
 	private ByteArrayOutputStream baOut;
 	
-	public HttpResponseWrapper(HttpServletResponse response) {
+	public ResponseWrapper(HttpServletResponse response) {
 		super(response);
 		this.response = response;
 	}
